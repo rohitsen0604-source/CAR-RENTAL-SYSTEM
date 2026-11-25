@@ -1,5 +1,5 @@
 <?php 
-// DB credentials from Environment variables or fallback defaults.
+// DB credentials from Environment variables.
 $db_url = getenv('DATABASE_URL');
 if (!empty($db_url)) {
     $dbparts = parse_url($db_url);
