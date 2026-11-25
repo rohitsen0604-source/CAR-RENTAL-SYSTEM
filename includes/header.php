@@ -9,15 +9,25 @@
         <div class="col-sm-9 col-md-10">
           <div class="header_info">
          <?php
-         $sql = "SELECT EmailId,ContactNo from tblcontactusinfo";
-$query = $dbh -> prepare($sql);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-foreach ($results as $result) {
-$email=$result->EmailId;
-$contactno=$result->ContactNo;
-}
-?>   
+         $email = "info@gmail.com";
+         $contactno = "8974561236";
+         try {
+             $sql = "SELECT EmailId,ContactNo from tblcontactusinfo";
+             if (isset($dbh)) {
+                 $query = $dbh -> prepare($sql);
+                 $query->execute();
+                 $results=$query->fetchAll(PDO::FETCH_OBJ);
+                 if($results && count($results) > 0) {
+                     foreach ($results as $result) {
+                         $email=$result->EmailId;
+                         $contactno=$result->ContactNo;
+                     }
+                 }
+             }
+         } catch (Exception $e) {
+             // Fallback default contact
+         }
+         ?>   
 
             <div class="header_widgets">
               <div class="circle_icon"> <i class="fa fa-envelope" aria-hidden="true"></i> </div>

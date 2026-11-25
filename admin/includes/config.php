@@ -1,4 +1,4 @@
 <?php 
-// Include central database config
+// Centralized Database config
 require_once dirname(__DIR__, 2) . '/includes/config.php';
 ?>
